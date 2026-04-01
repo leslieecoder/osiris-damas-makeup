@@ -1,6 +1,13 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="assets/icons/1.png">
+  <!-- Open Graph image for link sharing -->
+  <meta property="og:image" content="assets/hero-image.png">
+  <meta property="og:image:type" content="image/png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Osiris Damas – Makeup Artist | Salt Lake City, Utah</title>
@@ -130,20 +137,35 @@ section{padding:6rem 7vw}
 #galeria .section-header h2 em{color:var(--blush)}
 #galeria .section-header p{color:rgba(255,255,255,.6)}
 #galeria .overline{color:var(--blush)}
-.gallery-grid{display:grid;grid-template-columns:repeat(12,1fr);grid-template-rows:repeat(3,180px);gap:5px;padding:0 5px 5px}
-.gal-item{border-radius:6px;overflow:hidden;position:relative;cursor:pointer;transition:transform var(--t),box-shadow var(--t)}
+.gallery-grid{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  gap: 20px;
+  padding: 0 5px 5px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+.gal-item {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1/1;
+  min-height: 320px;
+  overflow: hidden;
+  border-radius: 8px;
+  background: #eee;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.gal-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.gal-item{border-radius:8px;overflow:hidden;position:relative;cursor:pointer;transition:transform var(--t),box-shadow var(--t)}
 .gal-item:hover{transform:scale(1.025);z-index:2;box-shadow:0 20px 60px rgba(0,0,0,.5)}
-.gal-item:nth-child(1){grid-column:span 4;grid-row:span 2;background:linear-gradient(145deg,#c97ab2,#820263)}
-.gal-item:nth-child(2){grid-column:span 3;grid-row:span 1;background:linear-gradient(145deg,#f7a8c9,#d90368)}
-.gal-item:nth-child(3){grid-column:span 5;grid-row:span 1;background:linear-gradient(145deg,#e5ac0f,#c97ab2)}
-.gal-item:nth-child(4){grid-column:span 2;grid-row:span 1;background:linear-gradient(145deg,#fde8f2,#d90368)}
-.gal-item:nth-child(5){grid-column:span 3;grid-row:span 2;background:linear-gradient(145deg,#820263,#1a0012)}
-.gal-item:nth-child(6){grid-column:span 2;grid-row:span 1;background:linear-gradient(145deg,#ffb6d7,#e5ac0f)}
-.gal-item:nth-child(7){grid-column:span 3;grid-row:span 1;background:linear-gradient(145deg,#d90368,#820263)}
-.gal-item:nth-child(8){grid-column:span 5;grid-row:span 1;background:linear-gradient(145deg,#c97ab2,#fde8f2)}
-.gal-item:nth-child(9){grid-column:span 4;grid-row:span 1;background:linear-gradient(145deg,#1a0012,#820263)}
-.gal-item::before{content:'';position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.45) 0%,transparent 50%);z-index:1;opacity:0;transition:opacity var(--t)}
-.gal-item:hover::before{opacity:1}
 .gal-icon{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:3rem;opacity:.2}
 .gal-label{position:absolute;bottom:.8rem;left:1rem;z-index:2;font-size:.58rem;font-weight:700;letter-spacing:.25em;text-transform:uppercase;color:rgba(255,255,255,.9);opacity:0;transform:translateY(6px);transition:all var(--t)}
 .gal-item:hover .gal-label{opacity:1;transform:translateY(0)}
@@ -299,7 +321,7 @@ footer{background:var(--dark);padding:4rem 7vw 2rem;color:rgba(255,255,255,.6)}
       </div>
       <div class="proof-text">
         <span class="proof-stars">★★★★★</span>
-        <strong>+200 clientas satisfechas</strong><br>
+        <strong>más de 20 clientas satisfechas</strong><br>
         en bodas, graduaciones y eventos
       </div>
     </div>
@@ -318,8 +340,8 @@ footer{background:var(--dark);padding:4rem 7vw 2rem;color:rgba(255,255,255,.6)}
         <div><strong style="color:var(--plum);font-size:.76rem">Airbrush</strong><span class="chip-label">Prueba de agua</span></div>
       </div>
       <div class="hero-chip hero-chip-2">
-        <img src="assets/icons/2.png" alt="5 estrellas Icon" class="chip-icon" style="width:1.6rem;height:1.6rem;object-fit:cover;border-radius:50%;" />
-        <div><strong style="color:var(--plum);font-size:.76rem">5 estrellas</strong><span class="chip-label">+200 reseñas</span></div>
+        <span class="chip-icon" style="font-size:1.6rem;line-height:1">⭐</span>
+        <div><strong style="color:var(--plum);font-size:.76rem">5 estrellas</strong><span class="chip-label">+20 reseñas</span></div>
       </div>
     </div>
   </div>
@@ -520,31 +542,48 @@ footer{background:var(--dark);padding:4rem 7vw 2rem;color:rgba(255,255,255,.6)}
     <div class="contact-detail"><div class="icon">🕐</div><div><strong>Horario</strong><br>Lunes – Sábado · 9am – 7pm</div></div>
   </div>
  
-  <div class="booking-form reveal delay-2">
+  <form class="booking-form reveal delay-2" name="appointment" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+    <input type="hidden" name="form-name" value="appointment">
     <h3>Agendar Cita</h3>
     <p class="form-sub">Completa el formulario y te contactamos para confirmar.</p>
     <div id="form-fields">
+      <input type="hidden" name="bot-field">
       <div class="form-row">
-        <div class="form-group"><label>Nombre</label><input type="text" placeholder="Tu nombre completo"></div>
-        <div class="form-group"><label>Teléfono / WhatsApp</label><input type="tel" placeholder="+1 (XXX) XXX-XXXX"></div>
+        <div class="form-group"><label>Nombre
+          <input type="text" name="nombre" placeholder="Tu nombre completo" required></label></div>
+        <div class="form-group"><label>Teléfono / WhatsApp
+          <input type="tel" name="telefono" placeholder="+1 (XXX) XXX-XXXX" required></label></div>
       </div>
-      <div class="form-group"><label>Correo electrónico</label><input type="email" placeholder="tu@email.com"></div>
+      <div class="form-group"><label>Correo electrónico
+        <input type="email" name="email" placeholder="tu@email.com" required></label></div>
       <div class="form-row">
-        <div class="form-group"><label>Tipo de servicio</label><select><option value="">Selecciona...</option><option>Soft Makeup</option><option>Maquillaje Standard HD</option><option>Airbrush Makeup</option><option>No sé, necesito orientación</option></select></div>
-        <div class="form-group"><label>Tipo de evento</label><select><option value="">Selecciona...</option><option>Boda</option><option>Graduación / Prom</option><option>Quinceañera</option><option>Sesión fotográfica</option><option>Evento corporativo</option><option>Uso diario</option><option>Otro</option></select></div>
+        <div class="form-group"><label>Tipo de servicio
+          <select name="servicio" required>
+            <option value="">Selecciona...</option>
+            <option>Soft Makeup</option>
+            <option>Maquillaje Standard HD</option>
+            <option>Airbrush Makeup</option>
+            <option>No sé, necesito orientación</option>
+          </select></label></div>
+        <div class="form-group"><label>Tipo de evento
+          <select name="evento" required>
+            <option value="">Selecciona...</option>
+            <option>Boda</option>
+            <option>Graduación / Prom</option>
+            <option>Quinceañera</option>
+            <option>Sesión fotográfica</option>
+            <option>Evento corporativo</option>
+            <option>Uso diario</option>
+            <option>Otro</option>
+          </select></label></div>
       </div>
-      <div class="form-group"><label>Fecha deseada</label><input type="date"></div>
-      <div class="form-group"><label>Mensaje adicional (opcional)</label><textarea placeholder="Cuéntame sobre tu evento, preferencias o cualquier pregunta..."></textarea></div>
-      <button class="form-submit" onclick="submitForm()">✦ Enviar solicitud de cita</button>
+      <div class="form-group"><label>Fecha deseada
+        <input type="date" name="fecha" required></label></div>
+      <div class="form-group"><label>Mensaje adicional (opcional)
+        <textarea name="mensaje" placeholder="Cuéntame sobre tu evento, preferencias o cualquier pregunta..."></textarea></label></div>
+      <button class="form-submit" type="submit">✦ Enviar solicitud de cita</button>
     </div>
-    <div class="form-success" id="form-success">
-      <div class="success-icon">💌</div>
-      <h4>¡Solicitud enviada!</h4>
-      <p>Gracias por contactarme. Te responderé en menos de 24 horas para confirmar tu cita. ✨</p>
-      <br>
-      <a href="https://wa.me/1XXXXXXXXXX" target="_blank" class="btn-primary" style="margin:0 auto;display:inline-flex">También por WhatsApp →</a>
-    </div>
-  </div>
+  </form>
 </section>
  
 <!-- FOOTER -->
