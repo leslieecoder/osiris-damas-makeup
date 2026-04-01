@@ -212,17 +212,96 @@ section{padding:6rem 7vw}
 .contact-detail{display:flex;align-items:center;gap:.8rem;margin-bottom:1rem;font-size:.83rem;color:var(--mid)}
 .contact-detail strong{color:var(--plum);font-weight:600}
 .contact-detail .icon{width:36px;height:36px;border-radius:10px;background:var(--blush2);display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0}
-.booking-form{background:var(--cream);border-radius:var(--radius-lg);padding:2.5rem;border:1.5px solid rgba(255,182,215,.4);box-shadow:var(--shadow-md)}
+.booking-form{
+  background: #fff;
+  border-radius: var(--radius-lg);
+  padding: 2.8rem 2.2rem 2.2rem 2.2rem;
+  border: 2.5px solid #f7e9b0;
+  box-shadow: 0 8px 32px rgba(217,3,104,.10);
+  max-width: 480px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
 .booking-form h3{font-family:'Playfair Display',serif;font-size:1.6rem;color:var(--plum);margin-bottom:.3rem}
 .form-sub{font-size:.78rem;color:var(--mid);margin-bottom:1.8rem}
-.form-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
-.form-group{display:flex;flex-direction:column;gap:.4rem;margin-bottom:.9rem}
-.form-group label{font-size:.62rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--mid)}
-.form-group input,.form-group select,.form-group textarea{background:#fff;border:1.5px solid rgba(255,182,215,.6);border-radius:var(--radius-sm);padding:.72rem 1rem;font-family:'DM Sans',sans-serif;font-size:.86rem;color:var(--dark);outline:none;transition:border-color var(--t),box-shadow var(--t);appearance:none}
-.form-group input:focus,.form-group select:focus,.form-group textarea:focus{border-color:var(--fuchsia);box-shadow:0 0 0 3px rgba(217,3,104,.1)}
-.form-group textarea{resize:vertical;min-height:85px}
-.form-submit{width:100%;padding:1rem;background:var(--fuchsia);color:#fff;border:none;border-radius:var(--radius-sm);font-family:'DM Sans',sans-serif;font-size:.72rem;font-weight:700;letter-spacing:.25em;text-transform:uppercase;cursor:pointer;transition:background var(--t),transform var(--t),box-shadow var(--t);box-shadow:0 6px 28px rgba(217,3,104,.3);margin-top:.5rem;display:flex;align-items:center;justify-content:center;gap:.5rem}
-.form-submit:hover{background:var(--plum);transform:translateY(-2px);box-shadow:var(--shadow-lg)}
+.form-row{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.2rem;
+  margin-bottom: 1.2rem;
+}
+.form-group{
+  display: flex;
+  flex-direction: column;
+  gap: .4rem;
+  margin-bottom: 1.1rem;
+}
+.form-group label{
+  font-size: .7rem;
+  font-weight: 700;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: #820263;
+  margin-bottom: .2rem;
+}
+.form-group input,
+.form-group select,
+.form-group textarea {
+  background: #fff;
+  border: 1.5px solid #f7e9b0;
+  border-radius: var(--radius-md);
+  padding: .82rem 1.1rem;
+  font-family: 'DM Sans',sans-serif;
+  font-size: .97rem;
+  color: var(--dark);
+  outline: none;
+  transition: border-color var(--t),box-shadow var(--t);
+  appearance: none;
+  margin-top: .1rem;
+  margin-bottom: .1rem;
+  box-shadow: 0 2px 12px rgba(130,2,99,.04);
+  font-weight: 400;
+}
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  border-color: var(--fuchsia);
+  box-shadow: 0 0 0 3px #D9036822;
+}
+.form-group textarea{
+  resize: vertical;
+  min-height: 85px;
+  max-height: 220px;
+}
+.form-submit{
+  width: 100%;
+  padding: 1.1rem;
+  background: var(--fuchsia);
+  color: #fff;
+  border: none;
+  border-radius: var(--radius-md);
+  font-family: 'DM Sans',sans-serif;
+  font-size: .92rem;
+  font-weight: 700;
+  letter-spacing: .25em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background var(--t),transform var(--t),box-shadow var(--t);
+  box-shadow: 0 8px 32px rgba(217,3,104,.18);
+  margin-top: .7rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: .7rem;
+  margin-bottom: .2rem;
+}
+.form-submit:hover{
+  background: var(--plum);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
+}
 .form-success{display:none;text-align:center;padding:2rem}
 .form-success .success-icon{font-size:3rem;margin-bottom:1rem}
 .form-success h4{font-family:'Playfair Display',serif;font-size:1.5rem;color:var(--plum);margin-bottom:.5rem}
